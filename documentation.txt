@@ -1,0 +1,69 @@
+/**
+ *
+ * This page defines the coding standard for the entire project
+ * @name wazima-admin-frontend-dashboard
+ * @author mactavis.com
+ */
+
+/**
+ * Naming Convention
+ * Ideally all variables and functions should be names with camelCase
+ *
+ * E.g
+ * shortenText, dyingHorse
+ *
+ *
+ */
+
+/**
+ * State Declarations
+ *
+ * Ideally all states should be local provided they do not need to be accessed
+ * on a global level
+ *
+ * GLOBAL LEVEL - States in this level are needed by more than 1 component
+ * LOCAL LEVEL - States in this level are only needed by one component
+ *
+ */
+
+/**
+ * Frameworks and Packages Used
+ * Redux and Redux Toolkit - State Management
+ * Text Shortener - To shorten texts
+ * Axios - For api calls
+ * Normal Case Generator - To capitalize letters
+ * Sass - To style components and pages
+ */
+
+/**
+ * File Exports
+ * Every folder should always have an index file which exports
+ * all the files contained within that same folder
+ * -----------------------------------------------EXAMPLE
+ * /pages/index.tsx
+ * /features/index.tsx
+ * /components/{another folder}/index.tsx
+ *
+ * -----------------------------------------------EXAMPLE
+ * In the event that the folder needs more files than the index file
+ * you can name the file in such a way that it identifies what that
+ * file actually does using the naming convention specified in this
+ * documentation
+ */
+
+/**
+ * Business Logic Description
+ * Every page with some element of business logic must be tightly detailed
+ * and commented to highlight in great detail what is happening on each page
+ * or feature
+ * -----------------------------------------------------------EXAMPLE
+ * // Definition of what function is meant to accomplish and why you are
+ * initializing it
+ * e.g const allowButtonToCloseModal = () => //do some code here
+ *
+ */
+
+/**
+ * User authorization
+ */
+
