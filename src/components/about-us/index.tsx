@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React from 'react'
 
 const AboutUs = () => {
   return (
@@ -20,7 +20,7 @@ const AboutUs = () => {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam
               adipisci praesentium cumque, commodi harum facilis quaerat libero
               rem sunt veniam quisquam consequatur eum. Molestias ullam optio
-              perferendis in, ut expedita.
+              perferendis in, ut expedita. this
             </p>
             <h3 className="heading-tertiary margin-bottom-small">
               Live Adventurous like you never have before
@@ -81,7 +81,7 @@ const AboutUs = () => {
         </div> */}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutUs;
+export default AboutUs

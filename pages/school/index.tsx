@@ -1,43 +1,43 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from "axios";
-import { useFormik } from "formik";
-import React from "react";
+import axios from 'axios'
+import { useFormik } from 'formik'
+import React from 'react'
 
 interface initialValuesType {
-  surname: string;
-  othersName: string;
-  class: string;
-  email: string;
-  gender: string;
-  phoneNo: string;
-  school: string;
+  surname: string
+  othersName: string
+  class: string
+  email: string
+  gender: string
+  phoneNo: string
+  school: string
 }
 const SchoolRegisterPage = () => {
   const initialValues: initialValuesType = {
-    surname: "",
-    othersName: "",
-    class: "",
-    email: "",
-    gender: "",
-    phoneNo: "",
-    school: "",
-  };
+    surname: '',
+    othersName: '',
+    class: '',
+    email: '',
+    gender: '',
+    phoneNo: '',
+    school: '',
+  }
 
   const register = (values) => {
     axios
       .post(`https://golden-api-napf.onrender.com/api/v1/reg/student`, values)
       .then((res) => {
-        console.log({ res });
+        console.log({ res })
       })
       .catch((error) => {
-        console.log({ error });
-      });
-  };
+        console.log({ error })
+      })
+  }
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: register,
-  });
-  console.log({ values });
+  })
+  console.log({ values })
   return (
     // <div className="main">
     //   <div className="container ">
@@ -223,23 +223,37 @@ const SchoolRegisterPage = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="main">
+    <div className="main bg-form">
       <div className="container">
         <div className="signup-content">
-          <div className="signup-img">
+          {/* <div className="signup-img">
             <img src="images/signup-img.jpg" alt="" />
-          </div>
-          <div className="signup-form">
+          </div> */}
+          <div className="signup-form form">
             <form method="POST" className="register-form" id="register-form">
-              <h2>School Registration Page For GG2022</h2>
+              <h2 className="text-center text-white">
+                School Registration Page For GG2022
+              </h2>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="school">School Name :</label>
-                  <input type="text" name="school" id="school" required />
+                  <input
+                    type="text"
+                    name="school"
+                    id="school"
+                    className="w-100"
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="address">School Address :</label>
-                  <input type="text" name="address" id="address" required />
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    className="w-100"
+                    required
+                  />
                 </div>
               </div>
               <fieldset>
@@ -247,11 +261,18 @@ const SchoolRegisterPage = () => {
 
                 <div className="form-group">
                   <label htmlFor="surname">Surname :</label>
-                  <input type="text" name="surname" id="surname" required />
+                  <input
+                    type="text"
+                    className="w-100"
+                    name="surname"
+                    id="surname"
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="other_name">Other Names :</label>
                   <input
+                    className="w-100"
                     type="text"
                     name="other_name"
                     id="other_name"
@@ -281,6 +302,7 @@ const SchoolRegisterPage = () => {
                 <div className="form-group">
                   <label htmlFor="email">Email Address :</label>
                   <input
+                    className="w-100"
                     type="email"
                     name="email"
                     id="email"
@@ -308,7 +330,13 @@ const SchoolRegisterPage = () => {
 
                 <div className="form-group">
                   <label htmlFor="surname">Surname :</label>
-                  <input type="text" name="surname" id="surname" required />
+                  <input
+                    type="text"
+                    name="surname"
+                    id="surname"
+                    className="w-100"
+                    required
+                  />
                 </div>
                 <div className="form-group">
                   <label htmlFor="other_name">Other Names :</label>
@@ -316,6 +344,7 @@ const SchoolRegisterPage = () => {
                     type="text"
                     name="other_name"
                     id="other_name"
+                    className="w-100"
                     required
                   />
                 </div>
@@ -342,6 +371,7 @@ const SchoolRegisterPage = () => {
                 <div className="form-group">
                   <label htmlFor="email">Email Address :</label>
                   <input
+                    className="w-100"
                     type="email"
                     name="email"
                     id="email"
@@ -366,9 +396,9 @@ const SchoolRegisterPage = () => {
               </fieldset>
               <div className="form-submit">
                 <input
+                  className="submit w-100"
                   type="submit"
                   value="Submit Form"
-                  className="submit"
                   name="submit"
                   id="submit"
                 />
@@ -378,7 +408,7 @@ const SchoolRegisterPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SchoolRegisterPage;
+export default SchoolRegisterPage
