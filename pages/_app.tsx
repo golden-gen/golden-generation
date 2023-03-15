@@ -3,10 +3,11 @@ import "../styles/styles.css";
 import "../styles/globals.css";
 import "../styles/sass/main.scss";
 import { store } from "../src/state/store";
+
+import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
@@ -15,19 +16,8 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <Provider store={store}>
+      <ToastContainer />
       <Component {...pageProps} />
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </Provider>
   );
 }
