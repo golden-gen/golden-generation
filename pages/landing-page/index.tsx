@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import React from "react";
 import AboutUs from "../../src/components/about-us";
 import Features from "../../src/components/features";
@@ -10,27 +11,34 @@ const LandingPage = () => {
     <>
       <header className="header">
         <div className="header__logo-box">
-          <img className="header__logo" src="/img/logo-white.png" alt="Logo" />
+          <img className="header__logo" src="/img/golden-logo.png" alt="Logo" />
         </div>
         <div className="header__text-box">
           <h1 className="heading-primary">
             <span className="heading-primary-main">Golden Generation</span>
-            <span className="heading-primary-sub">
+            <span className="heading-primary-sub ">
               The Future is our concern
             </span>
           </h1>
-          <a href="#" className="btn btn-white btn-animation">
-            Discover
-          </a>
+          <div className="d-flex gap-3 w-100 justify-content-center">
+            <Link href="/student">
+              <a className="btn btn-white btn-animation">
+                Student Registration
+              </a>
+            </Link>
+            <Link href="/school">
+              <a className="btn btn-white btn-animation">School Registration</a>
+            </Link>
+          </div>
         </div>
       </header>
       {/* About Us Section */}
-      <AboutUs />
+      {/* <AboutUs /> */}
       {/* Objectives Section */}
-      <Objectives />
+      {/* <Objectives /> */}
       {/* <GridWithFloat /> */}
       {/* features */}
-      <Features />
+      {/* <Features /> */}
     </>
   );
 };

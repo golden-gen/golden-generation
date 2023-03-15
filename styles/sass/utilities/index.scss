@@ -342,6 +342,10 @@ textarea {
     outline: 0;
     border-color: $main;
   }
+  &::placeholder {
+    color: black;
+    font-size: large;
+  }
 }
 
 textarea {
