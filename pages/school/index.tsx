@@ -1,48 +1,48 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from "axios";
-import { useFormik } from "formik";
-import React, { useState } from "react";
-import { toast } from "react-toastify";
+import axios from 'axios'
+import { useFormik } from 'formik'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 interface initialValueStudent {
-  surname: string;
-  othersName: string;
-  class: string;
-  email: string;
-  gender: string;
-  phoneNo: string;
+  surname: string
+  othersName: string
+  class: string
+  email: string
+  gender: string
+  phoneNo: string
 }
 interface initialValuesType {
-  schoolName: string;
-  schoolAddress: string;
-  candidate1: initialValueStudent;
-  candidate2: initialValueStudent;
+  schoolName: string
+  schoolAddress: string
+  candidate1: initialValueStudent
+  candidate2: initialValueStudent
 }
 const SchoolRegisterPage = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const initialValues: initialValuesType = {
-    schoolName: "",
-    schoolAddress: "",
+    schoolName: '',
+    schoolAddress: '',
     candidate1: {
-      surname: "",
-      othersName: "",
-      class: "",
-      email: "",
-      gender: "",
-      phoneNo: "",
+      surname: '',
+      othersName: '',
+      class: '',
+      email: '',
+      gender: '',
+      phoneNo: '',
     },
     candidate2: {
-      surname: "",
-      othersName: "",
-      class: "",
-      email: "",
-      gender: "",
-      phoneNo: "",
+      surname: '',
+      othersName: '',
+      class: '',
+      email: '',
+      gender: '',
+      phoneNo: '',
     },
-  };
+  }
 
   const register = (values, { resetForm }) => {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
     const data = [
       {
         schoolAddress: values.schoolAddress,
@@ -54,40 +54,40 @@ const SchoolRegisterPage = () => {
         schoolName: values.schoolName,
         ...values.candidate2,
       },
-    ];
-    console.log({ data });
+    ]
+    console.log({ data })
     axios
       .post(`https://golden-api-napf.onrender.com/api/v1/reg/school`, data)
       .then((res) => {
-        console.log({ res });
-        setIsSubmitting(false);
-        resetForm();
+        console.log({ res })
+        setIsSubmitting(false)
+        resetForm()
         toast(res.data.message, {
-          type: "success",
-        });
+          type: 'success',
+        })
       })
       .catch((error) => {
-        setIsSubmitting(false);
-        console.log({ error });
-        console.log({ error });
-        const message = error.response?.mesage || error.response?.data;
+        setIsSubmitting(false)
+        console.log({ error })
+        console.log({ error })
+        const message = error.response?.mesage || error.response?.data
 
-        if (message.includes("E11000 duplicate")) {
-          toast("Phone number already used by another applicant", {
-            type: "error",
-          });
+        if (message.includes('E11000 duplicate')) {
+          toast('Phone number already used by another applicant', {
+            type: 'error',
+          })
         } else {
           toast(message, {
-            type: "error",
-          });
+            type: 'error',
+          })
         }
-      });
-  };
+      })
+  }
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: register,
-  });
-  console.log({ values });
+  })
+  console.log({ values })
   return (
     <div className="main bg-form">
       <div className="container">
@@ -176,7 +176,7 @@ const SchoolRegisterPage = () => {
                       required
                     >
                       <option value="" className="text-white">
-                        Select your className
+                        Select your Class
                       </option>
                       <option value="ss1">SSS 1</option>
                       <option value="ss2">SSS 2</option>
@@ -276,7 +276,7 @@ const SchoolRegisterPage = () => {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Select your className</option>
+                      <option value="">Select your Class</option>
                       <option value="ss1">SSS 1</option>
                       <option value="ss2">SSS 2</option>
                       <option value="ss3">SSS 3</option>
@@ -340,7 +340,7 @@ const SchoolRegisterPage = () => {
                   id="submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Submitting..." : "Submit"}
+                  {isSubmitting ? 'Submitting...' : 'Submit'}{' '}
                 </button>
               </div>
             </form>
@@ -348,7 +348,7 @@ const SchoolRegisterPage = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SchoolRegisterPage;
+export default SchoolRegisterPage

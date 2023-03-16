@@ -1,66 +1,66 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from "axios";
-import { useFormik } from "formik";
-import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import axios from 'axios'
+import { useFormik } from 'formik'
+import React, { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 
 interface initialValuesType {
-  surname: string;
-  othersName: string;
-  class: string;
-  email: string;
-  gender: string;
-  phoneNo: string;
-  school: string;
+  surname: string
+  othersName: string
+  class: string
+  email: string
+  gender: string
+  phoneNo: string
+  school: string
 }
 const RegisterPage = () => {
-  const [isSubmitting, setSubmitting] = useState(false);
+  const [isSubmitting, setSubmitting] = useState(false)
   const initialValues: initialValuesType = {
-    surname: "",
-    othersName: "",
-    class: "",
-    email: "",
-    gender: "",
-    phoneNo: "",
-    school: "",
-  };
+    surname: '',
+    othersName: '',
+    class: '',
+    email: '',
+    gender: '',
+    phoneNo: '',
+    school: '',
+  }
 
   const register = (values, { resetForm }) => {
-    setSubmitting(true);
+    setSubmitting(true)
     // http://localhost:5000/
     // https://golden-api-napf.onrender.com
     axios
       .post(`https://golden-api-napf.onrender.com/api/v1/reg/student`, values)
       .then((res) => {
-        console.log({ res: res.data.message });
-        setSubmitting(false);
-        resetForm();
+        console.log({ res: res.data.message })
+        setSubmitting(false)
+        resetForm()
         toast(res.data.message, {
-          type: "success",
-        });
+          type: 'success',
+        })
       })
       .catch((error) => {
-        setSubmitting(false);
-        console.log({ error });
-        const message = error.response?.mesage || error.response?.data;
+        setSubmitting(false)
+        console.log({ error })
+        const message = error.response?.mesage || error.response?.data
 
-        if (message.includes("E11000 duplicate")) {
-          toast("Phone number already used by another applicant", {
-            type: "error",
-          });
+        if (message.includes('E11000 duplicate')) {
+          toast('Phone number already used by another applicant', {
+            type: 'error',
+          })
         } else {
           toast(message, {
-            type: "error",
-          });
+            type: 'error',
+          })
         }
-      });
-  };
+      })
+  }
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: register,
-  });
+  })
   // const notify = () => toast("Wow so easy !");
-  console.log({ values });
+  console.log({ values })
   return (
     <>
       <div className="main bg-form">
@@ -85,7 +85,7 @@ const RegisterPage = () => {
                     className="w-100"
                     type="text"
                     name="surname"
-                    placeholder="Jokanola"
+                    placeholder="enter your surname"
                     value={values.surname}
                     id="surname"
                     onChange={handleChange}
@@ -99,9 +99,9 @@ const RegisterPage = () => {
                     name="othersName"
                     value={values.othersName}
                     id="other_name"
-                    placeholder="Yusuff Olatunji"
-                    required
+                    placeholder="enter your other names"
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 {/* </div> */}
@@ -112,7 +112,7 @@ const RegisterPage = () => {
                     name="phoneNo"
                     id="phone"
                     value={values.phoneNo}
-                    placeholder="09023455883"
+                    placeholder="enter your phone number"
                     required
                     onChange={handleChange}
                   />
@@ -136,7 +136,7 @@ const RegisterPage = () => {
                     name="school"
                     id="school"
                     value={values.school}
-                    placeholder="Golden generation school"
+                    placeholder="enter your school name"
                     required
                     onChange={handleChange}
                   />
@@ -148,7 +148,7 @@ const RegisterPage = () => {
                     name="address"
                     value={values.address}
                     id="address"
-                    placeholder="No 2, erelua area, Oyo."
+                    placeholder="enter your home address"
                     required
                     onChange={handleChange}
                   />
@@ -217,7 +217,7 @@ const RegisterPage = () => {
                     id="submit"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Submitting..." : "Submit"}
+                    {isSubmitting ? 'Submitting...' : 'Submit'}
                   </button>
                 </div>
                 <div
@@ -265,7 +265,7 @@ const RegisterPage = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default RegisterPage;
+export default RegisterPage
