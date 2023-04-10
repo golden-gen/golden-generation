@@ -23,6 +23,16 @@
     color: $color-grey-dark;
     font-size: $default-font-size;
   }
+  &-primary {
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: $default-font-size;
+  }
+
+  &-center {
+    // display: block;
+    margin: 0 auto;
+  }
 
   &::after {
     content: "";

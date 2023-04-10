@@ -301,6 +301,7 @@ label {
   left: 13px;
   color: rgba($white, 0.5);
   transition: all 0.25s ease;
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
   font-size: 22px;
@@ -387,6 +388,7 @@ textarea {
   background: $main;
   color: $white;
   transition: all 0.5s ease;
+  appearance: none;
   -webkit-appearance: none;
   &:hover,
   &:focus {
@@ -409,7 +411,7 @@ textarea {
     padding: 5px;
     max-width: 600px;
     margin: 10px auto;
-    border-radius: $br;
+    // border-radius: $br;
     box-shadow: 0 4px 10px 4px rgba($form-bg, 0.3);
   }
   .signup-img,
@@ -419,4 +421,8 @@ textarea {
   .register-form {
     padding: 50px 20px 50px 15px;
   }
+}
+//Official website
+.center-text {
+  text-align: center;
 }

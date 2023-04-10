@@ -5,10 +5,11 @@ import AboutUs from "../../src/components/about-us";
 import Features from "../../src/components/features";
 import GridWithFloat from "../../src/components/grid-with-float";
 import Objectives from "../../src/components/objectives";
+import { Story } from "../../src/components/stories";
 
 const LandingPage = () => {
   return (
-    <>
+    <main>
       <header className="header">
         <div className="header__logo-box">
           <img className="header__logo" src="/img/golden-logo.png" alt="Logo" />
@@ -33,13 +34,15 @@ const LandingPage = () => {
         </div>
       </header>
       {/* About Us Section */}
-      {/* <AboutUs /> */}
+      <AboutUs />
       {/* Objectives Section */}
-      {/* <Objectives /> */}
+      <Objectives />
       {/* <GridWithFloat /> */}
       {/* features */}
-      {/* <Features /> */}
-    </>
+      <Features />
+      {/* Story section */}
+      <Story />
+    </main>
   );
 };
 

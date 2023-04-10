@@ -15,7 +15,7 @@
   background-size: 100%;
   background-position: center;
 
-  // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* clip-path: polygon(0 0, 100% 50%, 100% 50%, 0 100%); */
   //Logo
   &__logo-box {
