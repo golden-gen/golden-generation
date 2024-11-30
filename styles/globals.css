@@ -2,7 +2,7 @@ Result Skip Results Iframe * {
   font-family: "montserrat", sans-serif;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
 }
@@ -25,6 +25,10 @@ body {
   background-size: cover;
 }
 
+.form-select {
+  background-image: none !important;
+  padding: 0 !important;
+}
 .time {
   color: #fff;
   text-transform: uppercase;

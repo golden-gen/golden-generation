@@ -44,7 +44,7 @@ const RegisterPage = () => {
         console.log({ error })
         const message = error.response?.mesage || error.response?.data
 
-        if (message.includes('E11000 duplicate')) {
+        if (message?.includes('E11000 duplicate')) {
           toast('Phone number already used by another applicant', {
             type: 'error',
           })
@@ -59,10 +59,10 @@ const RegisterPage = () => {
     initialValues: initialValues,
     onSubmit: register,
   })
-  // const notify = () => toast("Wow so easy !");
-  // console.log({ values });
+ 
   return (
     <>
+      <ToastContainer />
       <div className="main bg-form">
         <div className="container ">
           <div className="signup-content ">
@@ -76,16 +76,16 @@ const RegisterPage = () => {
                 id="register-form"
               >
                 <h2 className="text-center text-white">
-                  Individual Registration Page For GG2022
+                  Registration Page For GG2024
                 </h2>
                 {/* <div className="form-row"> */}
                 <div className="form-group">
-                  <label htmlFor="surname">Surname :</label>
+                  <label htmlFor="surname">Surname:</label>
                   <input
                     className="w-100"
                     type="text"
                     name="surname"
-                    placeholder="Jokanola"
+                    placeholder="Enter your surname here"
                     value={values.surname}
                     id="surname"
                     onChange={handleChange}
@@ -93,44 +93,44 @@ const RegisterPage = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="other_name">Other Names :</label>
+                  <label htmlFor="other_name">Other Names:</label>
                   <input
                     type="text"
                     name="othersName"
                     value={values.othersName}
                     id="other_name"
-                    placeholder="Yusuff Olatunji"
+                    placeholder="Enter your other names here"
                     required
                     onChange={handleChange}
                   />
                 </div>
                 {/* </div> */}
                 <div className="form-group">
-                  <label htmlFor="phone">Phone Number :</label>
+                  <label htmlFor="phone">Phone Number:</label>
                   <input
                     type="text"
                     name="phoneNo"
                     id="phone"
                     value={values.phoneNo}
-                    placeholder="09023455883"
+                    placeholder="e.g 08012345678"
                     required
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">Email Address :</label>
+                  <label htmlFor="email">Email Address:</label>
                   <input
                     type="email"
                     name="email"
                     id="email"
                     value={values.email}
-                    placeholder="yourmail@gmail.com"
+                    placeholder="e.g yourmail@gmail.com"
                     onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="school">School :</label>
+                  <label htmlFor="school">School:</label>
                   <input
                     type="text"
                     name="school"
@@ -142,13 +142,13 @@ const RegisterPage = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="address">Address :</label>
+                  <label htmlFor="address">Address:</label>
                   <input
                     type="text"
                     name="address"
                     value={values.address}
                     id="address"
-                    placeholder="No 2, erelua area, Oyo."
+                    placeholder="Enter your home address here"
                     required
                     onChange={handleChange}
                   />
@@ -168,7 +168,7 @@ const RegisterPage = () => {
                         </div> */}
                 {/* <div className="form-row d-flex"> */}
                 <div className="form-group">
-                  <label htmlFor="gender">Gender :</label>
+                  <label htmlFor="gender">Gender:</label>
                   <div className="form-select">
                     <select
                       name="gender"
@@ -181,15 +181,11 @@ const RegisterPage = () => {
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
-                    <span className="select-icon">
-                      <i className="zmdi zmdi-chevron-down" />
-                    </span>
+                    
                   </div>
                 </div>
-                {/* </div> */}
-                {/* <div className="form-row"> */}
                 <div className="form-group">
-                  <label htmlFor="class">Class :</label>
+                  <label htmlFor="class">Class:</label>
                   <div className="form-select">
                     <select
                       name="class"
@@ -203,12 +199,9 @@ const RegisterPage = () => {
                       <option value="ss2">SSS 2</option>
                       <option value="ss3">SSS 3</option>
                     </select>
-                    <span className="select-icon">
-                      <i className="zmdi zmdi-chevron-down" />
-                    </span>
+                    
                   </div>
                 </div>
-                {/* </div> */}
                 <div className="form-submit">
                   <button
                     type="submit"

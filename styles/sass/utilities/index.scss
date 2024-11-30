@@ -296,14 +296,16 @@ h1 {
 }
 
 label {
-  position: absolute;
-  transform: translateY(6px);
-  left: 13px;
-  color: rgba($white, 0.5);
+  // position: absolute;
+  // transform: translateY(6px);
+  // left: 13px;
+  font-family: sans-serif;
+  font-weight: 300;
+  color: $white;
   transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
-  font-size: 22px;
+  // font-size: 14px;
   .req {
     margin: 2px;
     color: $main;
