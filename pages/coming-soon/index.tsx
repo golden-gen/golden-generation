@@ -9,7 +9,10 @@ const ComingSoon = () => {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post(`https://golden-api-napf.onrender.com/api/v1/reg/student`, email)
+      .post(
+        `https://registration-api-xc9m.onrender.com/api/v1/reg/student`,
+        email
+      )
       .then((res) => {
         setIsLoading(false);
         console.log({ res });

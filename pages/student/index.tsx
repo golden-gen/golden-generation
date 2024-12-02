@@ -1,65 +1,68 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from 'axios'
-import { useFormik } from 'formik'
-import React, { useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
+import axios from "axios";
+import { useFormik } from "formik";
+import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 interface initialValuesType {
-  surname: string
-  othersName: string
-  class: string
-  email: string
-  gender: string
-  phoneNo: string
-  school: string
+  surname: string;
+  othersName: string;
+  class: string;
+  email: string;
+  gender: string;
+  phoneNo: string;
+  school: string;
 }
 const RegisterPage = () => {
-  const [isSubmitting, setSubmitting] = useState(false)
+  const [isSubmitting, setSubmitting] = useState(false);
   const initialValues: initialValuesType = {
-    surname: '',
-    othersName: '',
-    class: '',
-    email: '',
-    gender: '',
-    phoneNo: '',
-    school: '',
-  }
+    surname: "",
+    othersName: "",
+    class: "",
+    email: "",
+    gender: "",
+    phoneNo: "",
+    school: "",
+  };
 
   const register = (values, { resetForm }) => {
-    setSubmitting(true)
+    setSubmitting(true);
     // http://localhost:5000/
-    // https://golden-api-napf.onrender.com
+    // https://registration-api-xc9m.onrender.com
     axios
-      .post(`https://golden-api-napf.onrender.com/api/v1/reg/student`, values)
+      .post(
+        `https://registration-api-xc9m.onrender.com/api/v1/reg/student`,
+        values
+      )
       .then((res) => {
         // console.log({ res: res.data.message });
-        setSubmitting(false)
-        resetForm()
+        setSubmitting(false);
+        resetForm();
         toast(res.data.message, {
-          type: 'success',
-        })
+          type: "success",
+        });
       })
       .catch((error) => {
-        setSubmitting(false)
-        console.log({ error })
-        const message = error.response?.mesage || error.response?.data
+        setSubmitting(false);
+        console.log({ error });
+        const message = error.response?.mesage || error.response?.data;
 
-        if (message?.includes('E11000 duplicate')) {
-          toast('Phone number already used by another applicant', {
-            type: 'error',
-          })
+        if (message?.includes("E11000 duplicate")) {
+          toast("Phone number already used by another applicant", {
+            type: "error",
+          });
         } else {
           toast(message, {
-            type: 'error',
-          })
+            type: "error",
+          });
         }
-      })
-  }
+      });
+  };
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: register,
-  })
- 
+  });
+
   return (
     <>
       <ToastContainer />
@@ -181,7 +184,6 @@ const RegisterPage = () => {
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
-                    
                   </div>
                 </div>
                 <div className="form-group">
@@ -199,7 +201,6 @@ const RegisterPage = () => {
                       <option value="ss2">SSS 2</option>
                       <option value="ss3">SSS 3</option>
                     </select>
-                    
                   </div>
                 </div>
                 <div className="form-submit">
@@ -210,7 +211,7 @@ const RegisterPage = () => {
                     id="submit"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </div>
                 <div
@@ -258,7 +259,7 @@ const RegisterPage = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;

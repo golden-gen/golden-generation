@@ -1,43 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
-import axios from 'axios'
-import { useFormik } from 'formik'
-import React from 'react'
+import axios from "axios";
+import { useFormik } from "formik";
+import React from "react";
 
 interface initialValuesType {
-  surname: string
-  othersName: string
-  class: string
-  email: string
-  gender: string
-  phoneNo: string
-  school: string
+  surname: string;
+  othersName: string;
+  class: string;
+  email: string;
+  gender: string;
+  phoneNo: string;
+  school: string;
 }
 const SchoolRegisterPage = () => {
   const initialValues: initialValuesType = {
-    surname: '',
-    othersName: '',
-    class: '',
-    email: '',
-    gender: '',
-    phoneNo: '',
-    school: '',
-  }
+    surname: "",
+    othersName: "",
+    class: "",
+    email: "",
+    gender: "",
+    phoneNo: "",
+    school: "",
+  };
 
   const register = (values) => {
     axios
-      .post(`https://golden-api-napf.onrender.com/api/v1/reg/student`, values)
+      .post(
+        `https://registration-api-xc9m.onrender.com/api/v1/reg/student`,
+        values
+      )
       .then((res) => {
-        console.log({ res })
+        console.log({ res });
       })
       .catch((error) => {
-        console.log({ error })
-      })
-  }
+        console.log({ error });
+      });
+  };
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: register,
-  })
-  console.log({ values })
+  });
+  console.log({ values });
   return (
     // <div className="main">
     //   <div className="container ">
@@ -408,7 +411,7 @@ const SchoolRegisterPage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SchoolRegisterPage
+export default SchoolRegisterPage;
